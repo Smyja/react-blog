@@ -9,6 +9,8 @@ import DeletePost from './components/DeletePost';
 import Layout from './containers/Layout';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './obs.css'
+
 
 const history = createBrowserHistory();
 

@@ -6,10 +6,10 @@ const Navbar = () => (
         display: 'flex',
         justifyContent: 'Space-around'
       }}>
-          <NavLink to='/'> <h2>Posts</h2></NavLink>
-          <NavLink to='/create'> <h2>Create a Post</h2></NavLink>
-            <NavLink to='/about'> <h2>About</h2></NavLink>
-            <NavLink to='/contact'> <h2>Contact</h2></NavLink>
+          <NavLink to='/'> <h3>Posts</h3></NavLink>
+          <NavLink to='/create'> <h3>Create a Post</h3></NavLink>
+            <NavLink to='/about'> <h3>About</h3></NavLink>
+            <NavLink to='/contact'> <h3>Contact</h3></NavLink>
 
      
           </div>

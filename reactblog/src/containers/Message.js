@@ -6,7 +6,7 @@ const Message = ({message}) => {
     return (
         <div>
   
-  {toast.error({message}, {
+  toast.error(error.message, {
         position: "top-left",
         autoClose: 5000,
         hideProgressBar: true,
@@ -14,7 +14,7 @@ const Message = ({message}) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        })};
+        });
         </div>
     )
 }

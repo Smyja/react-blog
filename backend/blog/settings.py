@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -129,6 +130,10 @@ USE_TZ = True
 
 SITE_ID = 1
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,"static_root")
+STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"media_root")
 
 EMAIL_BACKEND= 'django.core.mail.backends.console.EmailBackend'
 
