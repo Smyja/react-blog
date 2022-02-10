@@ -1,0 +1,20 @@
+POST http://127.0.0.1:8000/dj-rest-auth/login/
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "Akpobi101",
+    "email":"ako@blogg.io"
+}
+
+###Test signup
+
+POST http://127.0.0.1:8000/dj-rest-auth/registration/
+Content-Type: application/json
+
+{
+    "username": "touser",
+    "password1": "Akpobi101",
+    "email":"uko@blogg.io",
+    "password2":"Akpobi101"
+}

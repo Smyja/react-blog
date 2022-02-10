@@ -1,11 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import BlogList from './components/BlogList';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {createBrowserHistory} from 'history';
+import PostList from './components/PostList';
+import PostCreate from './components/PostCreate';
+import PostDetail from './components/PostDetail';
+import PostUpdate from './components/PostUpdate';
+import DeletePost from './components/DeletePost';
+import Layout from './containers/Layout';
+
+
+const history = createBrowserHistory();
 
 function App() {
   return (
-   <BlogList />
+    <BrowserRouter history={history}>
+      <Layout>  
+          <Routes>
+            <Route path="/" element={<PostList/>}/>
+            <Route path="/create" element={<PostCreate/>}/>
+            <Route path="/post/:postSlug" element={<PostDetail/>}/>
+            <Route path="/post/:postSlug/update" element={<PostUpdate/>}/>
+            <Route path="/post/:postSlug/delete" element={<DeletePost/>}/>
+
+          </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
