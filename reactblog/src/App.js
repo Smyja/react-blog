@@ -7,7 +7,8 @@ import PostDetail from './components/PostDetail';
 import PostUpdate from './components/PostUpdate';
 import DeletePost from './components/DeletePost';
 import Layout from './containers/Layout';
-
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const history = createBrowserHistory();
 
@@ -24,7 +25,9 @@ function App() {
 
           </Routes>
       </Layout>
+ <ToastContainer/>
     </BrowserRouter>
+  
   );
 }
 
