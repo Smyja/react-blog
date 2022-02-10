@@ -2,9 +2,7 @@ import React from 'react'
 
 const PostCreate = () => {
     return (
-        <div>
-            <header>Create a post List</header>
-        </div>
+        <header>Create a post List</header>
     )
 }
 
