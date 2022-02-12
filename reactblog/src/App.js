@@ -10,7 +10,7 @@ import Layout from './containers/Layout';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './obs.css'
-
+import './obs2.css'
 
 const history = createBrowserHistory();
 
