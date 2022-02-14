@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {createBrowserHistory} from 'history';
+import { history } from './helpers';
 import PostList from './components/PostList';
 import PostCreate from './components/PostCreate';
 import PostDetail from './components/PostDetail';
@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './obs.css'
 import './obs2.css'
 
-const history = createBrowserHistory();
+
 
 function App() {
   return (

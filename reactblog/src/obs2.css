@@ -18,3 +18,8 @@ button[type="submit"] {
     margin-top: 1rem;
     display: block;
 }
+
+button {
+    margin-top: 1rem;
+    display: block;
+}
