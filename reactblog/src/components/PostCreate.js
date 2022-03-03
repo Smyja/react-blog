@@ -1,6 +1,7 @@
 import React ,{useRef, useState} from 'react'
 import { history } from '../helpers'
 import axios from 'axios'
+import {api} from '../api'
 
 const PostCreate = () => {
     const [error, setError] = useState(null)
@@ -18,7 +19,7 @@ const PostCreate = () => {
     formData.append('title',title);
     formData.append('content',markdown);
     console.log(formData);
-    axios.post('http://localhost:8000/api/blog/posts/create/',formData,{
+    axios.post(api.posts.create,formData,{
         headers:{
             'Content-Type':'multipart/form-data',
             'Authorization':'Token b022aabe809ac2ba3c21c1727507fda0c4a37852'
@@ -27,7 +28,7 @@ const PostCreate = () => {
     .then(res=>{
         console.log(res)
         setLoading(false)
-        history.push('/posts')
+        history.push('/')
     })
     .catch(err=>{
         console.log(err)

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../containers/Loader";
 import { toast } from "react-toastify";
+import { api } from "../api";
 
 const PostList = () => {
   const [posts, setPosts] = useState(null);
@@ -12,7 +13,7 @@ const PostList = () => {
     async function fetchPosts() {
       setLoading(true);
       try {
-        const res = await axios.get("http://127.0.0.1:8000/api/blog/posts/");
+        const res = await axios.get(api.posts.list)
         console.log(res.data);
 
         setPosts(res.data);
