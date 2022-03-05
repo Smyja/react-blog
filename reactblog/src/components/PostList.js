@@ -13,7 +13,7 @@ const PostList = () => {
     async function fetchPosts() {
       setLoading(true);
       try {
-        const res = await axios.get(api.posts.list)
+        const res = await axios.get(api.posts.list);
         console.log(res.data);
 
         setPosts(res.data);
@@ -45,7 +45,11 @@ const PostList = () => {
       {posts?.map((post) => {
         return (
           <div key={post.id}>
-            <img src={post.thumbnaill} style={{width:"100px",height:"105px"}} alt="" />
+            <img
+              src={post.thumbnaill}
+              style={{ width: "100px", height: "105px" }}
+              alt=""
+            />
             <h3>{post.title}</h3>
             <p>{post.content}</p>
           </div>

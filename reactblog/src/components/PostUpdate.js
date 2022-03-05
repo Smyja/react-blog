@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const PostUpdate = () => {
-    return (
-        <div>
-            <header>Update post</header>
-        </div>
-    )
-}
+  return (
+    <div>
+      <header>Update post</header>
+    </div>
+  );
+};
 
-export default PostUpdate
+export default PostUpdate;

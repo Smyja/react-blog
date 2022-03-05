@@ -7,14 +7,15 @@ const Message = ({message}) => {
         <div>
   
   toast.error(error.message, {
-        position: "top-left",
+        position: top-left,
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+        }
+        );
         </div>
     )
 }
