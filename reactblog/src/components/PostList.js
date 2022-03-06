@@ -10,6 +10,7 @@ const PostList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const ac = new AbortController();
     async function fetchPosts() {
       setLoading(true);
       try {
@@ -24,6 +25,7 @@ const PostList = () => {
       }
     }
     fetchPosts();
+    return () => ac.abort(); 
   }, []);
 
   return (

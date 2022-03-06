@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
+import {useNavigate} from "react-router-dom"
 import MarkdownIt from "markdown-it";
 import MdEditor from "react-markdown-editor-lite";
 import "react-markdown-editor-lite/lib/index.css";
-import { history } from "../helpers";
-import axios from "axios";
+// import { history } from "../helpers";
+import { authAxios } from "../services/authenticatiion";
 import { api } from "../api";
 
 const PostCreate = () => {
@@ -15,27 +16,26 @@ const PostCreate = () => {
   const mdParser = new MarkdownIt(/* Markdown-it options */);
 
   const fileInputRef = useRef();
-
+  const history = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    console.log(markdown)
+    console.log(markdown);
     const formData = new FormData();
     formData.append("thumbnaill", thumbnail);
     formData.append("title", title);
     formData.append("content", markdown);
     console.log(formData);
-    axios
+    authAxios
       .post(api.posts.create, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: "Token b022aabe809ac2ba3c21c1727507fda0c4a37852",
         },
       })
       .then((res) => {
         console.log(res);
         setLoading(false);
-        history.push("/");
+        history("/");
       })
       .catch((err) => {
         console.log(err);
@@ -58,11 +58,11 @@ const PostCreate = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="">Content</label>
- 
+
         <MdEditor
-          style={{ height: "500px",width:"600px" }}
+          style={{ height: "500px", width: "600px" }}
           renderHTML={(text) => mdParser.render(text)}
-          onChange={({text})=>setMarkdown(text)}
+          onChange={({ text }) => setMarkdown(text)}
         />
 
         <button type="button" onClick={() => fileInputRef.current.click()}>

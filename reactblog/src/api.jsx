@@ -4,6 +4,10 @@ const baseURL =
     : "https://domain.com";
 console.log(process.env);
 export const api = {
+  auth: {
+    login: `${baseURL}/dj-rest-auth/login/`,
+  },
+
   posts: {
     list: `${baseURL}/api/blog/posts/`,
     create: `${baseURL}/api/blog/posts/create/`,

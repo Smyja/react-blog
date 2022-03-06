@@ -182,7 +182,8 @@ label {
 
 input[type="email"],
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
   border: 2px solid var(--gray-200);

@@ -1,30 +1,47 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink,Navigate } from "react-router-dom";
+import { authenticationService } from "../services/authenticatiion";
 
-const Navbar = () => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "Space-around",
-    }}
-  >
-    <NavLink to="/">
-      {" "}
-      <h3>Posts</h3>
-    </NavLink>
-    <NavLink to="/create">
-      {" "}
-      <h3>Create a Post</h3>
-    </NavLink>
-    <NavLink to="/about">
-      {" "}
-      <h3>About</h3>
-    </NavLink>
-    <NavLink to="/contact">
-      {" "}
-      <h3>Contact</h3>
-    </NavLink>
-  </div>
-);
+const Navbar = () => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "Space-around",
+      }}
+    >
+      <NavLink to="/">
+        {" "}
+        <h3>Posts</h3>
+      </NavLink>
+      {authenticationService.isAuthenticated ? (
+        <div
+          style={{
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
+          onClick={() => authenticationService.logout()}
+         
+        >
+          <h3>Logout</h3>
+        </div>
+      ) : (
+        <NavLink to="/login">
+          {" "}
+          <h3>Login</h3>
+        </NavLink>
+      )}
+      <NavLink to="/create">
+        {" "}
+        <h3>Create a Post</h3>
+      </NavLink>
+
+      <NavLink to="/contact">
+        {" "}
+        <h3>Contact</h3>
+      </NavLink>
+    </div>
+  );
+};
 
 export default Navbar;
