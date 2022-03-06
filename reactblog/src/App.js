@@ -8,15 +8,16 @@ import PostUpdate from "./components/PostUpdate";
 import DeletePost from "./components/DeletePost";
 import Layout from "./containers/Layout";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./obs.css";
 import "./obs2.css";
 
-const history = createBrowserHistory({forceRefresh:true});
+
 function App() {
   return (
-    <BrowserRouter history={history}>
+    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<PostList />} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/post/:postSlug/update" element={<PostUpdate />} />
           <Route path="/post/:postSlug/delete" element={<DeletePost />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </Layout>
       <ToastContainer />

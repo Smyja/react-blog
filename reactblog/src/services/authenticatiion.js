@@ -27,9 +27,26 @@ function login(username, email, password) {
     .then((res) => {
       localStorage.setItem("token", res.data.key);
       return res;
+     
     });
-}
 
+}
+function signup(username, email, password1,password2) {
+    return axios
+      .post(api.auth.register, {
+        username,
+        email,
+        password1,
+        password2
+      })
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem("token", res.data.key);
+        return res;
+       
+      });
+    }
+    
 function logout() {
   localStorage.removeItem("token");
   window.location.href = '/';
@@ -39,5 +56,6 @@ const authenticationService = {
   isAuthenticated: isAuthenticated(),
   logout,
   login,
+  signup
 };
 export { authAxios, authenticationService };

@@ -1,22 +1,21 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { history } from "../helpers";
 import { authenticationService } from "../services/authenticatiion";
 
-const Login = () => {
+const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
 
-  
   const history = useNavigate();
   function handleSubmit(e) {
     setLoading(true);
     e.preventDefault();
     authenticationService
-      .login(username, email, password)
+      .signup(username, email, password,confirmPassword)
       .then((res) => {
         setLoading(false);
         history("/");
@@ -28,11 +27,11 @@ const Login = () => {
   }
   console.log(authenticationService.isAuthenticated);
   if (authenticationService.isAuthenticated) {
-    return <Navigate replace to="/" />;
+    return <Navigate to="/" replace />;
   }
   return (
     <div>
-      <header>Login</header>
+      <header>Signup</header>
 
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
@@ -50,6 +49,13 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <label htmlFor="">Confirm Password</label>
+        <input
+          className="text-input"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setconfirmPassword(e.target.value)}
+        />
         <label htmlFor="">Email</label>
         <input
           className="text-input"
@@ -59,11 +65,11 @@ const Login = () => {
         />
 
         <button type="submit" loading={loading.toString()} disabled={loading}>
-          Login
+          Signup
         </button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
