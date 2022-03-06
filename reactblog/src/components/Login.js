@@ -1,7 +1,7 @@
-import React, { useState} from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { history } from "../helpers";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { authenticationService } from "../services/authenticatiion";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -9,8 +9,8 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
 
-  
   const history = useNavigate();
   function handleSubmit(e) {
     setLoading(true);
@@ -19,6 +19,7 @@ const Login = () => {
       .login(username, email, password)
       .then((res) => {
         setLoading(false);
+        login(res.data.key)
         history("/");
       })
       .catch((error) => {
@@ -26,10 +27,7 @@ const Login = () => {
         setError(error.message || error);
       });
   }
-  console.log(authenticationService.isAuthenticated);
-  if (authenticationService.isAuthenticated) {
-    return <Navigate replace to="/" />;
-  }
+
   return (
     <div>
       <header>Login</header>

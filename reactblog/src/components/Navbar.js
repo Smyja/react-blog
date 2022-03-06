@@ -1,9 +1,20 @@
-import React,{useEffect} from "react";
-import { NavLink, Navigate } from "react-router-dom";
-import { authenticationService } from "../services/authenticatiion";
+import React,{useContext} from "react";
+import axios from "axios";
+import { NavLink,useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+import { api } from "../api"
 
+const Navbar = () => {
+  const { user,logout } = useContext(AuthContext)
+  const navigate = useNavigate()
 
-const Navbar = (authenticationService.isAuthenticated) => {
+  function handleSubmit() {
+    axios.post(api.auth.logout)
+      .then(res => {
+        logout()
+        navigate('/login')
+      })
+  }
   return (
     <div
       style={{
@@ -16,14 +27,14 @@ const Navbar = (authenticationService.isAuthenticated) => {
         <h3>Posts</h3>
       </NavLink>
 
-      {authenticationService.isAuthenticated ? (
+      {user ? (
         <>
           <div
             style={{
               cursor: "pointer",
               textDecoration: "underline",
             }}
-            onClick={() => authenticationService.logout()}
+            onClick={handleSubmit}
           >
             <h3>Logout</h3>
           </div>

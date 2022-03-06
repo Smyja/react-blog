@@ -10,8 +10,8 @@ import { api } from "../api";
 const PostCreate = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [title, setTitle] = useState(null);
-  const [markdown, setMarkdown] = useState(null);
+  const [title, setTitle] = useState("");
+  const [markdown, setMarkdown] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
   const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -74,7 +74,7 @@ const PostCreate = () => {
           onChange={(e) => setThumbnail(e.target.files[0])}
           hidden
         />
-        <button type="submit" loading={loading} disabled={loading}>
+        <button type="submit" loading={loading.toString()} disabled={loading}>
           Submit
         </button>
       </form>

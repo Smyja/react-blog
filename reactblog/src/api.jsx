@@ -6,7 +6,8 @@ console.log(process.env);
 export const api = {
   auth: {
     login: `${baseURL}/dj-rest-auth/login/`,
-    register:`${baseURL}/dj-rest-auth/registration/`
+    register:`${baseURL}/dj-rest-auth/registration/`,
+    logout: `${baseURL}/dj-rest-auth/logout/`
   },
 
   posts: {
