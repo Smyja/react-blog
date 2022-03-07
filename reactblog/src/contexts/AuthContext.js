@@ -18,11 +18,15 @@ export function AuthContextProvider({ children }) {
         const user = authenticationService.tokenlogin(token)
         setUser(user)
     }
-
+    function signup(token) {
+        const user = authenticationService.tokenlogin(token)
+        setUser(user)
+    }
     return (
         <AuthContext.Provider value={{
             logout,
             login,
+            signup,
             user
         }}>
             {children}

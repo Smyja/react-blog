@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useState,useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { authenticationService } from "../services/authenticatiion";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -9,6 +10,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
+  const { signup } = useContext(AuthContext);
+
 
   const history = useNavigate();
   function handleSubmit(e) {
@@ -18,6 +21,7 @@ const Signup = () => {
       .signup(username, email, password,confirmPassword)
       .then((res) => {
         setLoading(false);
+        signup(res.data.key)
         history("/");
       })
       .catch((error) => {
@@ -25,10 +29,7 @@ const Signup = () => {
         setError(error.message || error);
       });
   }
-  console.log(authenticationService.isAuthenticated);
-  if (authenticationService.isAuthenticated) {
-    return <Navigate to="/" replace />;
-  }
+
   return (
     <div>
       <header>Signup</header>

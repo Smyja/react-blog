@@ -47,14 +47,15 @@ const Navbar = () => {
           <NavLink to="/login">
             {" "}
             <h3>Login</h3>
-          </NavLink>{" "}
+          </NavLink>
+          <NavLink to="/signup">
+        {" "}
+        <h3>Signup</h3>
+      </NavLink>
         </>
       )}
 
-      <NavLink to="/contact">
-        {" "}
-        <h3>Contact</h3>
-      </NavLink>
+ 
     </div>
   );
 };
