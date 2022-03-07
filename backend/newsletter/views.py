@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics,permissions
 # Create your views here.
 from rest_framework.permissions import AllowAny
 from .models import Post
@@ -19,7 +19,7 @@ class PostDetailView(generics.RetrieveAPIView):
 
 
 class PostCreateView(generics.CreateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = PostCreateSerializer
 
     def perform_create(self, serializer):
