@@ -5,6 +5,7 @@ from .models import Post
 from .serializers import PostSerializer,  PostCreateSerializer
 
 class PostListView(generics.ListAPIView):
+    ''' List all posts '''
     permission_classes = [AllowAny]
     queryset =Post.objects.all()
     serializer_class = PostSerializer
