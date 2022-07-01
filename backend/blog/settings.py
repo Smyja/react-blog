@@ -49,8 +49,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
+    "https://9e12a0dd-f8e4-4af6-b5a7-63abeb524c6c.id.repl.co",
     "http://localhost:3000",
-    "https://9e12a0dd-f8e4-4af6-b5a7-63abeb524c6c.id.repl.co"
 ]
 ROOT_URLCONF = 'blog.urls'
 
